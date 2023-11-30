@@ -1,4 +1,4 @@
-package com.example.sun_position
+package com.jilly.sun_position
 
 import io.flutter.embedding.android.FlutterActivity
 

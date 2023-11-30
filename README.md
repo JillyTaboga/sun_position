@@ -1,3 +1,3 @@
 # sun_position
 
-A new Flutter project.
+Pequeno projeto para calcular a trajetória do sol e a projeção da sombra
