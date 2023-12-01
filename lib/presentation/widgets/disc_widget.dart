@@ -16,7 +16,7 @@ class DiscWidget extends StatelessWidget {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 350),
       clipBehavior: Clip.antiAlias,
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.all(20),
       width: double.infinity,
       height: double.infinity,
       decoration: BoxDecoration(
@@ -24,13 +24,19 @@ class DiscWidget extends StatelessWidget {
         color: isDark ? Colors.black26 : Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.shade50,
+            color: Colors.black12.withOpacity(0.03),
+            blurRadius: 20,
+            spreadRadius: 50,
           ),
           BoxShadow(
-            color: Colors.black12.withOpacity(0.1),
+            color: Colors.black12.withOpacity(0.08),
             blurRadius: 10,
-            spreadRadius: 5,
-            offset: const Offset(2, 2),
+            spreadRadius: 20,
+          ),
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.08),
+            blurRadius: 5,
+            spreadRadius: 10,
           ),
         ],
       ),

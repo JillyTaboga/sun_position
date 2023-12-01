@@ -17,15 +17,24 @@ class LatLongWidget extends StatelessWidget {
       height: 60,
       padding: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: switch (autoLocation) {
-          AutoLocationData _ => Colors.blue.withOpacity(0.1),
-          _ => Colors.grey,
-        },
+        color: Colors.white,
         border: Border.all(
           color: Colors.grey.shade600,
           width: 0.1,
         ),
         borderRadius: BorderRadius.circular(50),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.03),
+            blurRadius: 5,
+            spreadRadius: 10,
+          ),
+          BoxShadow(
+            color: Colors.black12.withOpacity(0.03),
+            blurRadius: 3,
+            spreadRadius: 5,
+          ),
+        ],
       ),
       child: Center(
         child: FittedBox(

@@ -45,6 +45,14 @@ class HomeScreen extends ConsumerWidget {
                             color: solarData.isHoursOfDarkness
                                 ? Colors.black12
                                 : Colors.amber.withOpacity(0.2),
+                            boxShadow: const [
+                              BoxShadow(
+                                color: Colors.black12,
+                                blurRadius: 1,
+                                spreadRadius: 0,
+                                blurStyle: BlurStyle.inner,
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -90,6 +98,17 @@ class HomeScreen extends ConsumerWidget {
                           );
                         },
                       ),
+                    Center(
+                      child: Container(
+                        width: 35,
+                        height: 35,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Colors.white,
+                          boxShadow: kElevationToShadow[4],
+                        ),
+                      ),
+                    ),
                     if (!solarData.isHoursOfDarkness)
                       LayoutBuilder(
                         builder: (context, constraints) {
@@ -108,25 +127,16 @@ class HomeScreen extends ConsumerWidget {
                                 ),
                                 width: 60,
                                 height: 60,
-                                decoration: const BoxDecoration(
-                                  color: Colors.amber,
+                                decoration: BoxDecoration(
+                                  color: Colors.amber.withOpacity(0.75),
                                   shape: BoxShape.circle,
+                                  boxShadow: kElevationToShadow[8],
                                 ),
                               ),
                             ),
                           );
                         },
                       ),
-                    Center(
-                      child: Container(
-                        width: 35,
-                        height: 35,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -293,21 +303,43 @@ class HomeScreen extends ConsumerWidget {
                         minWidth: 100,
                         minHeight: 60,
                       ),
+                      color: Colors.black45,
+                      selectedColor: Colors.white,
+                      selectedBorderColor: Colors.transparent,
+                      fillColor: Colors.black26,
                     ),
                   ),
-                  child: ToggleButtons(
-                    isSelected: CompassTypeOrigin.values
-                        .map(
-                          (e) => e == orientationType,
-                        )
-                        .toList(),
-                    onPressed: (index) {
-                      ref.read(compassTypeProvider.notifier).change();
-                    },
-                    children: const [
-                      Text('Automático'),
-                      Text('Manual'),
-                    ],
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(50),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black12.withOpacity(0.03),
+                          blurRadius: 5,
+                          spreadRadius: 10,
+                        ),
+                        BoxShadow(
+                          color: Colors.black12.withOpacity(0.03),
+                          blurRadius: 3,
+                          spreadRadius: 5,
+                        ),
+                      ],
+                    ),
+                    child: ToggleButtons(
+                      isSelected: CompassTypeOrigin.values
+                          .map(
+                            (e) => e == orientationType,
+                          )
+                          .toList(),
+                      onPressed: (index) {
+                        ref.read(compassTypeProvider.notifier).change();
+                      },
+                      children: const [
+                        Text('Automático'),
+                        Text('Manual'),
+                      ],
+                    ),
                   ),
                 ),
                 const Spacer(),
