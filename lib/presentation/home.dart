@@ -72,9 +72,13 @@ class HomeScreen extends ConsumerWidget {
                                   SizedBox(height: (constraints.maxWidth) / 2),
                                   Expanded(
                                     child: Container(
+                                      clipBehavior: Clip.antiAlias,
                                       width: 35,
                                       height: double.maxFinite,
                                       decoration: const BoxDecoration(
+                                        borderRadius: BorderRadius.vertical(
+                                          bottom: Radius.circular(35),
+                                        ),
                                         gradient: LinearGradient(
                                           colors: [
                                             Colors.black54,
